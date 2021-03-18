@@ -1,0 +1,38 @@
+busy man
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool compare(pair<int,int>a,pair<int,int>b)
+{
+    return a.second<b.second;
+}
+
+int main()
+{   // taking input 
+    int n,s,e;
+    vector<pair<int,int>>v;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>s>>e;
+        v.push_back(make_pair(s,e));
+    }
+    // doing sorting
+    sort(v.begin(),v.end(),compare);
+    int count=1;
+    int end=v[0].second;
+    cout<<v[0].first<<" "<<v[0].second<<endl;
+    for(auto i:v)
+    {
+        if(i.first>=end)
+        {cout<<i.first<<" "<<i.second<<endl;
+            count++;
+            end=i.second;
+        }
+    }
+    cout<<count;
+    
+    return 0;
+}

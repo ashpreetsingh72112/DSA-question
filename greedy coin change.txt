@@ -1,0 +1,26 @@
+greedy---- coins change problem
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve(int *coins,int t,int money)
+{
+    int ans=0;
+    while(money>0)
+    {
+        int idx=upper_bound(coins,coins+t,money)-1-coins;
+        cout<<coins[idx]<<" ";
+        money=money-coins[idx];
+        ans++;
+    }
+}
+int main()
+{ int n;
+cin>>n;
+int arr[]={1,2,5,10,20,50,100,500,2000};
+int t=sizeof(arr)/sizeof(int);
+
+   solve(arr,t,n);
+    return 0;
+}
